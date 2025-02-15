@@ -42,7 +42,7 @@ select cast('create table ' + (
 									or CHARACTER_MAXIMUM_LENGTH = - 1
 									then ' text'
 								when DATA_TYPE = 'decimal'
-									then ' Numeric(' + cast(NUMERIC_PRECISION as varchar(2)) + ',' + cast(numeric_scale as varchar(2)) + ')'
+									then ' Numeric'
 								when DATA_TYPE = 'bit'
 									then ' Boolean' + iif(COLUMN_default = '((0))', ' default false', iif(COLUMN_default = '((1))', ' default true', ''))
 								when DATA_TYPE = 'tinyint'
@@ -61,7 +61,7 @@ select cast('create table ' + (
 										'money'
 										,'smallmoney'
 										)
-									then ' Numeric(8,2)'
+									then ' Numeric'
 								when DATA_TYPE in (
 										'binary'
 										,'varbinary'
